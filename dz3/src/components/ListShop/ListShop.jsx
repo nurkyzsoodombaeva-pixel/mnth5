@@ -67,11 +67,11 @@ const ListShop = () => {
     }
   return (
     <div className="products">
-        {list_shop?.map((item)=>{
-         return <EveryShop product={item} addToBasket={addToBasket}/>
+        {list_shop.map((item)=>{
+         return <EveryShop key={item.id} product={item} addToBasket={addToBasket}/>
         })}
          <h1 className="Basket">Корзина</h1>
-        {products && products.map((product) => (
+        {products.map((product) => (
            
           <EveryShop key={product.id} product={product} />
         ))}
