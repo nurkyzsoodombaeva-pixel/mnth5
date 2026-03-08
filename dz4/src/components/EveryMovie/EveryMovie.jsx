@@ -2,8 +2,8 @@ import React from 'react'
 
 const EveryMovie = ({ movie, addToFavorites, favorites }) => {
 
-const favMovie = favorites.some(f => {
-  return f.id === movie.id
+const favMovie = favorites.some(item => {
+  return item.id === movie.id
 })
 
   return (
