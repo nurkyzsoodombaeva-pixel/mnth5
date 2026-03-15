@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import EveryQuote from "../EveryQuote/EveryQuote";
 import "./style.css";
 
+
 const ListQuote = () => {
   const quotes = [
     { 
@@ -30,22 +31,25 @@ const ListQuote = () => {
   ];
 
   const [quote, setQuote] = useState([]);
+  
   const [loading, setLoading] = useState(true);
 
   const getQuote = () => {
-    const qwerty = Math.floor(Math.random()*quotes.length)
-    setQuote([quotes[qwerty]]);
+    const randomIndex = Math.floor(Math.random()*quotes.length)
+    setQuote([quotes[randomIndex]]);
+    console.log('render');
+
   };
 
   useEffect(() => {
     setTimeout(() => {
-      getQuote();
+      getQuote()
       setLoading(false);
     }, 1000);
+    
   }, []);
-
   return (
-    <div className="quotes">
+    <div className={styles.div}>
       <h1>Случайная цитата</h1>
 
       {loading ? (
@@ -53,6 +57,7 @@ const ListQuote = () => {
       ) : (
         quote.map((item) => (
           <EveryQuote key={item.id} quote={item} getQuote={getQuote} />
+
         ))
       )}
     </div>
