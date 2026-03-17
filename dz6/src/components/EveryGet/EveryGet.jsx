@@ -12,7 +12,7 @@ const EveryGet = () => {
         const data = response.data.posts 
         const postStatus = data.map((item, index)=>({
             ...item,
-            status : index < data.length /2
+            status : index < data.length / 2
         }))
 
         setPosts(postStatus)
